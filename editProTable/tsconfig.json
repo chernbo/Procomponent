@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    // 允许 no-unused-vars
+
+    "noImplicitAny": false,
+
+    // 允许生效 @ts-expect-error
+    "strict": false
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
