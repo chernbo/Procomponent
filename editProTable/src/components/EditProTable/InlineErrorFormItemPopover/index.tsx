@@ -20,12 +20,11 @@ const InlineErrorFormItemPopover: FC<InlineErrorFormItemPopoverProps> = ({
 
   return (
     <Form.Item
-      shouldUpdate={(prevValues, curValues, info) => {
-        // 监听字段值变化或者验证状态变化
+      noStyle
+      shouldUpdate={(prevValues, curValues) => {
+        // 监听字段值变化
         return (
-          prevValues[fieldName as string] !== curValues[fieldName as string] ||
-          info.type === "validateField" ||
-          info.type === "validateFields"
+          prevValues[fieldName as string] !== curValues[fieldName as string]
         );
       }}
     >
@@ -40,9 +39,8 @@ const InlineErrorFormItemPopover: FC<InlineErrorFormItemPopoverProps> = ({
             content={
               <span style={{ color: "#ff4d4f" }}>{errors.join(", ")}</span>
             }
-            trigger={["hover", "focus"]}
+            trigger={["click"]}
             placement="topLeft"
-            overlayStyle={{ maxWidth: 250 }}
           >
             <div onFocus={() => setOpen(true)} onBlur={() => setOpen(false)}>
               {children}
